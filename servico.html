@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="Pagina de serviços técnicos de Informática">
+    <!-- <meta name="keywords" content="lar de idosos, vovó walquíria, amparo ao idoso, cuidado aos idosos, solidariedade, são vicente"> -->
+    <!-- <meta name="author" content="Lar de Amparo ao Idoso Vovó Walquíria"> -->
+    <!-- <meta name="robots" content="index, follow"> -->
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/styles/nav.css">
+    <link rel="stylesheet" href="assets/styles/sev.css">
+    <link rel="icon" href="assets/image/logovovo.webp">
+    <title>Nexus Digital</title>
+</head>
+<body>
+    <nav>
+        <div class="logo">  <p> Nexus Digital</p> </div> 
+
+        <div class="menu-btn">
+            <i class="fa fa-bars fa-2x" onclick="menuShow()"></i>
+        </div>
+
+        <ul>
+            <li> <a href="index.html" class="active"> Ínicio </a> </li>
+            <li> <a href="sobre.html"> Sobre</a> </li>
+            <li> <a href="contato.html"> Contato</a> </li>
+            <li> <a href="servico.html" class="btn-ajudar"> Contratar serviço</a> </li>
+        </ul>
+    </nav>
+        <h1>Serviços a prestar</h1>
+        <p class="texto1">Na nexus podemos prestar dois tipos de atendimentos, um de forma remota e outro caso presencial, nossos serviços onlines são feitas dentro de um periodo de 1 hora para resposta do chamado e entrarmos em uma ligação, serviços presenciais dentro do periodo comercial temos até 3 horas para chegarmos até o seu local e efetuar o serviço, caso seja feito pós horário comercial um funcionario nosso posicionado para atendimentos onlines a qualquer horário tentará te ajudar, em caso de não resolução seu atendimendo no dia seguinte será definido como prioridade dentro do hórario comercial no início do dia.</p>
+        <hr>
+
+    <div class="forma">
+<form onsubmit="enviarEmail(event)" >
+    <label class="form-label" for="name">Nome</label>
+    <input class="form-input" type="text" id="name" name="name" required>
+
+    <label class="form-label" for="email">E-mail</label>
+    <input class="form-input" type="email" id="email" name="email" required>
+
+
+    <label class="form-label" for="phone">Telefone </label>
+    <input class="form-input" type="text" id="phone" name="phone" required><br><br>
+
+    <p class="service-type">
+        <input class="service-radio" type="radio" id="functional" name="service-type" value="Serviço Presenciais
+        " required>
+        <label for="functional">Serviço Presenciais</label>
+    </p>
+    <p class="service-type">
+        <input class="service-radio" type="radio" id="consultative" name="service-type" value="Serviço Online" required>
+        <label for="consultative">Serviço Online</label>
+    </p>
+<br><br> 
+    <label class="form-label" for="message">Mensagem</label>
+    <textarea class="form-textarea" id="message" name="message"></textarea><br><br>
+
+    <button class="form-button" type="submit">Enviar</button>
+    
+</form>
+</div>
+<script>
+function enviarEmail(event) {
+    event.preventDefault(); // Impede o envio padrão do formulário
+    // Coleta os dados do formulário
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const phone = document.getElementById('phone').value;
+    const serviceType = document.querySelector('input[name="service-type"]:checked').value;
+    const message = document.getElementById('message').value;
+
+// Incremental number logic using localStorage
+    const storageKey = 'emailRequestCount';
+    let count = localStorage.getItem(storageKey);
+    if (!count) {
+        count = 0;
+    } else {
+        count = parseInt(count, 10);
+        if (isNaN(count)) {
+            count = 0;
+        }
+    }
+    count += 1;
+    localStorage.setItem(storageKey, count);
+    // Format number with leading zero if less than 10
+    const formattedCount = count < 10 ? '0' + count : count;
+    // Prepare subject with chosen service type and incremental number
+    const subject = `${serviceType} ${formattedCount}`;
+
+    // Formata o corpo do e-mail
+    const body = `Nome: ${name}\nE-mail: ${email}\nTelefone: ${phone}\nTipo de Serviço: ${serviceType}\nMensagem: ${message}`;
+    const to = 'destinatario@example.com'; // Substitua pelo e-mail desejado
+    const mailtoLink = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(to)}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.open(mailtoLink, '_blank');
+}
+</script>
+</body>
+</html>
