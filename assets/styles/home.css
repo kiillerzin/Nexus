@@ -1,0 +1,126 @@
+.imagem-principal{
+    width: 100%;  
+    display: block; 
+    object-fit: cover;
+  }
+  
+  .texto-div {
+    display: flex;
+    justify-content: center;
+    margin-top: 60px;
+  }
+  
+  .texto {
+    font-size: 20px;
+    width: 70%;
+    text-align: justify;
+    color: #114B0B;
+    line-height: 1.7rem;
+    position: absolute;
+    top: 20%;       /* Posiciona o texto no centro verticalmente */
+    left: 50%;
+    right: 50%;     
+    transform: translate(-50%, -50%); /* Ajusta o texto para o centro */
+    color: white; /* Cor do texto */
+    font-size: 30px;
+
+  }
+  
+  h2{
+      text-align: center;
+      font-style: italic;
+      margin-top: 50px;
+      margin-bottom: 20px;
+      font-size: 26px;
+      color: black;
+  }
+  
+  .centro {
+    display: flex;
+    justify-content: center;
+    height: 500px;
+  }
+  
+  .video {
+    width: 800px;
+  }
+  
+  
+  
+  button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(255, 255, 255, 0.7);
+      border: none;
+      cursor: pointer;
+      padding: 10px;
+  }
+  
+  .prev {
+      left: 10px;
+  }
+  
+  .next {
+      right: 10px;
+  }
+  
+ 
+  
+  
+  /* <--- Respons. ---> */
+  
+  @media(max-width: 960px){
+    .navbar {
+      flex-direction: column;
+      align-items: start;
+      padding: 20px;
+    }
+  
+    .logo {
+      margin-left: 10px;
+      font: Arial, Helvetica, sans-serif;
+      font-size: 100px;
+      
+    }
+  
+    .nav-links {
+      flex-direction: column;
+    }
+  }
+
+  @media(max-width: 600px){
+    .centro {
+      display: flex;
+      justify-content: center;
+      height: 200px;
+    }
+    
+    .video {
+      width: 300px;
+    }
+
+    
+    
+    h2{
+      text-align: center;
+      font-style: italic;
+      margin-top: 50px;
+      margin-bottom: 20px;
+      font-size: 16px;
+  }
+
+  .texto {
+    font-size: 14px;
+    width: 80%;
+    text-align: justify;
+  }
+
+  }
+  
+  @media(orientation: landscape) {
+  
+  }
+  main{
+    position: relative;
+  }
